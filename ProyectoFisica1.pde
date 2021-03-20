@@ -80,7 +80,10 @@ void draw(){
       enemy.moveEnemy();
       enemy.display();
       displayLifes(3-lifes);
-      text("Score: " + score,width/2-20,100); 
+      fill(255, 255, 255);
+      text("Puntos: " + score,width/2-100,100); 
+      fill(160, 43, 171);
+      text("_________________",width/2-150,110); 
       
   }
 }
@@ -88,11 +91,11 @@ void draw(){
 void displayLifes(int brokenHearts) {
   for(int i=0; i<3;i++){
     if(brokenHearts > 0) {
-      image(imgBrokenHeart,(width/2+20 + i*40),200,36,36);
+      image(imgBrokenHeart,(width/2-15 + i*40),200,36,36);
       brokenHearts--;
     }
     else {
-      image(imgHeart,(width/2+20 + i*40),200,50,50);
+      image(imgHeart,(width/2-15 + i*40),200,50,50);
     }  
   }
 }
