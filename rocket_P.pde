@@ -56,7 +56,7 @@ class Rocket{
 
   void display(){
     
-     PImage img =loadImage("cohete2.png");
+     PImage img =loadImage("rocket_sprite.png");
     imageMode(CENTER);
     image(img,x-w/2,y-h/2,w,h);
   } 

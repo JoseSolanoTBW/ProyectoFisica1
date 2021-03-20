@@ -8,12 +8,17 @@ int speedAccumulation;
 int time = millis();
 int score;
 int lifes;
+int x,y;
 boolean gameOver;
 PImage imgHeart;
 PImage imgBrokenHeart;
- 
+PImage backgroundImage;
+
 void setup(){
-  fullScreen();
+  backgroundImage = loadImage("bg_04.jpg"); // Or whatever your background is
+
+fullScreen(); 
+
   player = new Rocket(80, (height/2)+30, 51.6, 73.8, 0.5, 24);
   balls = new ArrayList<Ball>();
   enemy=new Enemy(width-80, 100, 30, 100, 0.5, 24);
@@ -29,6 +34,14 @@ void setup(){
 }
 
 void draw(){
+  int x = frameCount % backgroundImage.width;
+  copy(backgroundImage, x, 0, backgroundImage.width, height, 0, 0, backgroundImage.width, height);
+  int x2 = backgroundImage.width - x;
+  if (x2 < width) {
+    copy(backgroundImage, 0, 0, backgroundImage.width, height, x2, 0, backgroundImage.width, height);
+  }
+  
+  
   if(gameOver) {
       clear();
       text("GAME OVER. Your final score is " + score,width/2-20,height/2-20); 
@@ -40,7 +53,6 @@ void draw(){
         time = millis();
         score += 100;
       }
-      background(0); // Clear the window
       for (int i = balls.size()-1; i >= 0; i--) { 
         // An ArrayList doesn't know what it is storing so we have to cast the object coming out
         Ball ball = balls.get(i);
@@ -104,24 +116,4 @@ void keyPressed() {
 void keyReleased() {
    speedAccumulation = 0; 
 }
-
-//void borderCol() {
-//  if (ball.right() > width) { //if stuff between () is true, execute code between {}
-//    ball.speedX = -ball.speedX;
-//  }
-//   if (ball.left() < 0) {
-//    ball.speedX = -ball.speedX;
-//  }
-
-//  if (ball.bottom() > height) {
-//    ball.speedY = -ball.speedY;
-//  }
-
-//  if (ball.top() < 0) {
-//    ball.speedY = -ball.speedY;
-//  }
-  
-//  if(ball.left() < player.x && (abs(ball.y - player.y) <= player.h) && ball.speedX < 0) {
-//    ball.speedX = -ball.speedX;
-//    devolutions++;
-//  }
+ 
