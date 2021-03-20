@@ -44,7 +44,14 @@ void draw(){
   
   if(gameOver) {
       clear();
-      text("GAME OVER. Your final score is " + score,width/2-20,height/2-20); 
+      fill(160, 43, 171);
+      text("___________________________",width/2-280,height/2-220); 
+      fill(255, 255, 255);
+      text("¡FIN DEL JUEGO!  ",width/2-160,height/2-110); 
+      fill(115, 162, 255);
+      text("Puntos obtenidos: " + score,width/2-250,height/2-20);
+       fill(160, 43, 171);
+      text("___________________________",width/2-280,height/1-450); 
   
   } else {
       if (millis() > time + 2000)
