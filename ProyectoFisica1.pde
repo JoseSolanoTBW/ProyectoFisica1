@@ -78,7 +78,6 @@ void draw(){
       player.move();
       player.display();
       enemy.moveEnemy();
-      enemy.display();
       displayLifes(3-lifes);
       fill(255, 255, 255);
       text("Puntos: " + score,width/2-100,100); 

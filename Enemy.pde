@@ -36,18 +36,18 @@ class Enemy{
 {
 
       if (this.y<height) {
-        this.y=this.y+1;
+        this.y=this.y+10;
         
     }  else{
     this.y=100;
     }
  
   }
-  void display(){
-     PImage img =loadImage("enemy2.png");
-    imageMode(CENTER);
-    image(img,x,y,160,160);
-  } 
+  //void display(){
+  //   PImage img =loadImage("enemy2.png");
+  //  imageMode(CENTER);
+  //  image(img,x,y,160,160);
+  //} 
   
   //helper functions
   float left(){

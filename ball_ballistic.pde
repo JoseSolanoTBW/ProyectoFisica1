@@ -38,6 +38,9 @@ class Ball_Ballistic implements Ball {
   void display() {
     fill(c); //set the drawing color
     ellipse(x,y,diameter,diameter); //draw a circle
+    PImage img =loadImage("meteor.png");
+    imageMode(CENTER);
+    image(img,x,y,160,160);
   }
   
   boolean collision(float p_x, float p_y, float w, float h) {
